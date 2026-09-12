@@ -82,7 +82,7 @@ function DashboardPage() {
       sales: 0,
       restocks: 0,
     }));
-    const now = Date.now();
+    const now = REF_NOW;
     for (const m of movements) {
       const ageDays = (now - new Date(m.createdAt).getTime()) / 86400000;
       if (ageDays > 56) continue;

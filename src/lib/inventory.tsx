@@ -94,7 +94,7 @@ function lcg(seed: number) {
 
 // Fixed reference instant keeps SSR and client renders identical (hydration-safe)
 // and keeps the seeded 30-day history permanently inside the reporting window.
-const REF_NOW = Date.UTC(2026, 8, 12, 9, 0, 0);
+export const REF_NOW = Date.UTC(2026, 8, 12, 9, 0, 0);
 
 function seedMovements(): Movement[] {
   const rand = lcg(20260912);
