@@ -95,7 +95,8 @@ function lcg(seed: number) {
 function seedMovements(): Movement[] {
   const rand = lcg(20260912);
   const out: Movement[] = [];
-  const now = Date.now();
+  // Fixed reference instant keeps SSR and client renders identical (hydration-safe).
+  const now = Date.UTC(2026, 8, 12, 9, 0, 0);
   let n = 0;
   for (const p of seedProducts) {
     // velocity per product: units/day baseline
