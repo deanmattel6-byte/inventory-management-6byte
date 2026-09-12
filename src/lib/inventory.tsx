@@ -92,11 +92,14 @@ function lcg(seed: number) {
   };
 }
 
+// Fixed reference instant keeps SSR and client renders identical (hydration-safe)
+// and keeps the seeded 30-day history permanently inside the reporting window.
+const REF_NOW = Date.UTC(2026, 8, 12, 9, 0, 0);
+
 function seedMovements(): Movement[] {
   const rand = lcg(20260912);
   const out: Movement[] = [];
-  // Fixed reference instant keeps SSR and client renders identical (hydration-safe).
-  const now = Date.UTC(2026, 8, 12, 9, 0, 0);
+  const now = REF_NOW;
   let n = 0;
   for (const p of seedProducts) {
     // velocity per product: units/day baseline
@@ -146,7 +149,7 @@ export function stockStatus(p: Product): StockStatus {
 }
 
 export function salesLast30Days(productId: string, movements: Movement[]): number {
-  const cutoff = Date.now() - 30 * 86400000;
+  const cutoff = REF_NOW - 30 * 86400000;
   return movements
     .filter((m) => m.productId === productId && m.type === "SALE" && new Date(m.createdAt).getTime() >= cutoff)
     .reduce((sum, m) => sum + Math.abs(m.quantityChange), 0);
