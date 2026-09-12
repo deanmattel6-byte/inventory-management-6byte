@@ -289,7 +289,7 @@ export function useInventory(): InventoryStore {
 }
 
 export function categoryById(id: string): Category {
-  return categories.find((c) => c.id === id) ?? categories[0];
+  return categories.find((c) => c.id === id) ?? (categories[0] as Category);
 }
 
 export { seedProducts };
