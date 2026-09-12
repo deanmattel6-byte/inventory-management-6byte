@@ -5,6 +5,7 @@ import {
   categoryById,
   computeRecommendation,
   formatMoney,
+  REF_NOW,
   salesLast30Days,
   stockStatus,
   useInventory,
