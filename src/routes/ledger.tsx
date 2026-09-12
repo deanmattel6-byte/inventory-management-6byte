@@ -98,7 +98,6 @@ function LedgerPage() {
             <option value="RESTOCK">Restock (inbound)</option>
             <option value="SALE">Sale (outbound)</option>
             <option value="RETURN">Return</option>
-            <option value="Adjustment">Adjustment</option>
             <option value="ADJUSTMENT">Adjustment (damage / audit)</option>
           </select>
           <input
