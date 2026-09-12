@@ -221,7 +221,7 @@ function DashboardPage() {
           <div className="mt-4 flex h-44 items-end gap-2">
             {weekly.map((w, i) => (
               <div key={i} className="flex flex-1 flex-col items-center gap-1">
-                <div className="relative flex h-full w-full items-end justify-center gap-0.5">
+                <div className="relative flex h-36 w-full items-end justify-center gap-0.5">
                   <div
                     className="bar-grow w-1/2 rounded-t-sm bg-cyan/60"
                     style={{ height: `${w.sales}%`, animationDelay: `${0.1 + i * 0.05}s` }}
